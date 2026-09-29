@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres-self-hosted:
+    image: postgres:15-alpine
+    container_name: postgres_self_hosted_testbed
+    restart: always
+    environment:
+      POSTGRES_DB: db_testbed
+      POSTGRES_USER: admin_user
+      POSTGRES_PASSWORD: SecretPassword123!
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgres.conf:/etc/postgresql/postgresql.conf
+      - ../scripts/init_schema.sql:/docker-entrypoint-initdb.d/init.sql
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2048M
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+volumes:
+  pgdata:

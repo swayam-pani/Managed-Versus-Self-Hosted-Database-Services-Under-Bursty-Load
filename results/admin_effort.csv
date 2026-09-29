@@ -1,0 +1,9 @@
+deployment_type,task,start_time,end_time,duration_minutes,notes
+self_hosted_postgres_docker,initial_schema_and_seed_setup,2026-09-30 03:00:00,2026-09-30 03:12:00,12.0,Schema creation, table definitions, and initial 10,000 accounts seeding
+self_hosted_postgres_docker,docker_compose_up_and_verify,2026-09-30 03:12:00,2026-09-30 03:26:00,14.0,Configured docker-compose.yml with cgroups limits (2.0 vCPU, 2048MB RAM) and verified container health
+self_hosted_postgres_docker,backup_setup_pg_dump_cron,2026-09-30 03:26:00,2026-09-30 03:56:00,30.0,Configured automated snapshot script using pg_dump with volume mount retention
+self_hosted_postgres_docker,manual_recovery_drill,2026-09-30 03:56:00,2026-09-30 04:38:00,42.0,Simulated container corruption, volume remount, schema restoration and WAL consistency check
+managed_cloud_neon_aws,account_and_instance_provisioning,2026-09-30 03:20:00,2026-09-30 03:24:00,4.0,Created serverless PostgreSQL 16 instance on AWS us-east-2 with pooled pgBouncer endpoint
+managed_cloud_neon_aws,schema_migration_and_seed,2026-09-30 03:27:00,2026-09-30 03:28:00,1.0,Automated DDL execution and 10k accounts seeding over TLS connection
+managed_cloud_neon_aws,automated_backup_and_recovery_drill,2026-09-30 03:28:00,2026-09-30 03:31:00,3.0,Verified point-in-time recovery (PITR) and instant zero-copy branch restoration
+managed_cloud_neon_aws,ongoing_maintenance_per_month,2026-09-30 03:31:00,2026-09-30 03:33:00,2.0,Automated security patching and OS maintenance handled entirely by managed provider
