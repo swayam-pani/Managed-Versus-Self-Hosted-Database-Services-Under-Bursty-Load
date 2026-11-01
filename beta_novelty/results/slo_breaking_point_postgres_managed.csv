@@ -1,0 +1,10 @@
+backend,multiplier,target_qps,base_p99_ms,peak_p99_ms,slo_threshold_ms,status,BAF
+postgres_managed,1.0,150,748.96,559.66,1000.0,PASS,-252.75
+postgres_managed,1.5,225,412.32,726.37,1000.0,PASS,1.52
+postgres_managed,2.0,300,757.44,1069.63,1000.0,FAIL,0.41
+postgres_managed,2.5,375,820.25,969.42,1000.0,PASS,0.12
+postgres_managed,3.0,450,816.73,781.39,1000.0,PASS,-0.02
+postgres_managed,3.5,525,735.9,972.98,1000.0,PASS,0.13
+postgres_managed,4.0,600,403.64,972.45,1000.0,PASS,0.47
+postgres_managed,4.5,675,652.01,732.05,1000.0,PASS,0.04
+postgres_managed,5.0,750,856.29,975.08,1000.0,PASS,0.03

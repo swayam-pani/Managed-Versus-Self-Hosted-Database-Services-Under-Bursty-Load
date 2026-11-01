@@ -1,0 +1,4 @@
+backend,workload,trials_n,base_p99_mean_ms,base_p99_variance,base_p99_std,base_p99_ci95,peak_p99_mean_ms,peak_p99_variance,peak_p99_std,peak_p99_ci95,recovery_time_mean_s,recovery_time_variance,recovery_time_std,recovery_time_ci95,baf_mean,baf_variance,baf_ci95
+sqlite,read_heavy,3,4.772,0.0122,0.11,0.274,22.895,931.0866,30.514,75.806,5.667,65.3333,8.083,20.081,1.244,4.3568,5.186
+sqlite,balanced,3,5.536,0.7367,0.858,2.132,7.212,15.2014,3.899,9.686,3.667,6.3333,2.517,6.252,0.086,0.026,0.4
+sqlite,write_heavy,3,8.302,2.4218,1.556,3.866,8.021,2.842,1.686,4.188,1,0,0.0,0.0,0.005,0.0176,0.329

@@ -26,6 +26,19 @@ import sqlite3
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SQLITE_PATH = os.path.join(BASE_DIR, "testbed_db.sqlite")
 
+# Automatically load .env if present
+_env_file = os.path.join(BASE_DIR, ".env")
+if os.path.exists(_env_file):
+    try:
+        with open(_env_file, "r", encoding="utf-8") as _f:
+            for _line in _f:
+                _line = _line.strip()
+                if _line and not _line.startswith("#") and "=" in _line:
+                    _k, _v = _line.split("=", 1)
+                    os.environ.setdefault(_k.strip(), _v.strip())
+    except Exception:
+        pass
+
 POSTGRES_DSN = dict(
     host=os.environ.get("PG_HOST", "localhost"),
     port=os.environ.get("PG_PORT", "5432"),
@@ -41,18 +54,28 @@ class Backend:
     
     Supported backends:
       - 'sqlite'
-      - 'postgres' or 'postgres_self_hosted' (Docker containerized)
-      - 'postgres_managed' (Remote Cloud SQL / RDS / Serverless Postgres)
+      - 'postgres', 'postgres_self_hosted', or 'postgres_docker' (Docker containerized)
+      - 'postgres_managed' (Remote Cloud SQL / RDS / Serverless Neon AWS Ohio)
     """
 
-    def __init__(self, kind):
+    # Connection pooling configuration parameters
+    DEFAULT_MIN_CONNECTIONS = 1
+    DEFAULT_MAX_CONNECTIONS = 20
+    DEFAULT_CONNECT_TIMEOUT = 10  # seconds
+
+    def __init__(self, kind, max_connections=20, connect_timeout=10):
         self.kind = kind
+        self.max_connections = max_connections
+        self.connect_timeout = connect_timeout
+        self.pool = None
+
         if kind == "sqlite":
             self.conn = sqlite3.connect(SQLITE_PATH)
             self.placeholder = "?"
-        elif kind in ("postgres", "postgres_self_hosted"):
+        elif kind in ("postgres", "postgres_self_hosted", "postgres_docker"):
             try:
                 import psycopg2
+                from psycopg2 import pool
             except ImportError as e:
                 raise SystemExit("psycopg2-binary is not installed.") from e
             dsn = dict(
@@ -61,18 +84,40 @@ class Backend:
                 dbname=os.environ.get("SELFHOSTED_PG_DB", os.environ.get("PG_DB", "db_testbed")),
                 user=os.environ.get("SELFHOSTED_PG_USER", os.environ.get("PG_USER", "admin_user")),
                 password=os.environ.get("SELFHOSTED_PG_PASSWORD", os.environ.get("PG_PASSWORD", "SecretPassword123!")),
+                connect_timeout=self.connect_timeout,
             )
-            self.conn = psycopg2.connect(**dsn)
+            try:
+                self.pool = pool.ThreadedConnectionPool(
+                    minconn=self.DEFAULT_MIN_CONNECTIONS,
+                    maxconn=self.max_connections,
+                    **dsn
+                )
+                self.conn = self.pool.getconn()
+            except Exception:
+                # Fallback to direct single connection if pooler/server has strict limits
+                self.conn = psycopg2.connect(**dsn)
             self.conn.autocommit = False
             self.placeholder = "%s"
         elif kind == "postgres_managed":
             try:
                 import psycopg2
+                from psycopg2 import pool
             except ImportError as e:
                 raise SystemExit("psycopg2-binary is not installed.") from e
+            
+            # Neon Managed PostgreSQL Endpoint on AWS Ohio (us-east-2) with Connection Pooling
             url = os.environ.get("MANAGED_PG_URL", os.environ.get("DATABASE_URL", None))
             if url:
-                self.conn = psycopg2.connect(url)
+                try:
+                    self.pool = pool.ThreadedConnectionPool(
+                        minconn=self.DEFAULT_MIN_CONNECTIONS,
+                        maxconn=self.max_connections,
+                        dsn=url,
+                        connect_timeout=self.connect_timeout
+                    )
+                    self.conn = self.pool.getconn()
+                except Exception:
+                    self.conn = psycopg2.connect(url, connect_timeout=self.connect_timeout)
             else:
                 dsn = dict(
                     host=os.environ.get("MANAGED_PG_HOST", "localhost"),
@@ -81,8 +126,17 @@ class Backend:
                     user=os.environ.get("MANAGED_PG_USER", "postgres"),
                     password=os.environ.get("MANAGED_PG_PASSWORD", ""),
                     sslmode=os.environ.get("MANAGED_PG_SSLMODE", "prefer"),
+                    connect_timeout=self.connect_timeout,
                 )
-                self.conn = psycopg2.connect(**dsn)
+                try:
+                    self.pool = pool.ThreadedConnectionPool(
+                        minconn=self.DEFAULT_MIN_CONNECTIONS,
+                        maxconn=self.max_connections,
+                        **dsn
+                    )
+                    self.conn = self.pool.getconn()
+                except Exception:
+                    self.conn = psycopg2.connect(**dsn)
             self.conn.autocommit = False
             self.placeholder = "%s"
         else:
@@ -95,7 +149,16 @@ class Backend:
         self.conn.commit()
 
     def close(self):
-        self.conn.close()
+        if hasattr(self, 'conn') and self.conn:
+            try:
+                self.conn.close()
+            except Exception:
+                pass
+        if hasattr(self, 'pool') and self.pool:
+            try:
+                self.pool.closeall()
+            except Exception:
+                pass
 
     def q(self, sql_with_qmarks):
         """Rewrite a SQL string written with '?' placeholders into the

@@ -1,0 +1,10 @@
+backend,multiplier,target_qps,base_p99_ms,peak_p99_ms,slo_threshold_ms,status,BAF
+sqlite,1.0,150,5.63,5.22,10.0,PASS,-72.95
+sqlite,1.5,225,4.84,5.89,10.0,PASS,0.43
+sqlite,2.0,300,4.86,4.8,10.0,PASS,-0.01
+sqlite,2.5,375,4.84,4.69,10.0,PASS,-0.02
+sqlite,3.0,450,4.82,4.76,10.0,PASS,-0.01
+sqlite,3.5,525,4.91,8.07,10.0,PASS,0.26
+sqlite,4.0,600,8.4,8.63,10.0,PASS,0.01
+sqlite,4.5,675,5.09,4.5,10.0,PASS,-0.03
+sqlite,5.0,750,6.04,5.45,10.0,PASS,-0.02

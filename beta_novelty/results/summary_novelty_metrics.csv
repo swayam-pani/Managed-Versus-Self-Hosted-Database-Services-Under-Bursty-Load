@@ -1,0 +1,10 @@
+backend,shape,base_p99_ms,peak_p99_ms,recovery_threshold_ms,recovery_time_s,burst_amplification_factor_BAF,hysteresis_at_5s,cumulative_hysteresis_AUC_H,total_extra_workload_requests
+postgres_managed,sudden,664.34,944.524,996.51,1,0.21,-0.644,0.272,3600
+postgres_managed,ramp,693.5,973.115,1040.25,1,0.11,-0.337,0.004,3600
+postgres_managed,repeated,788.51,966.525,1182.765,1,0.08,0.223,0.673,3600
+sqlite,sudden,5.009,8.041,7.514,8,0.3,0.532,5.652,3600
+sqlite,ramp,9.718,8.566,14.577,1,-0.03,-0.524,0.0,3600
+sqlite,repeated,5.094,5.364,7.641,1,0.02,0.033,1.062,3600
+postgres_self_hosted,sudden,12.59,18.052,18.885,1,0.22,-0.262,0.183,3600
+postgres_self_hosted,ramp,19.681,43.603,29.522,1,0.33,-0.525,0.353,3600
+postgres_self_hosted,repeated,13.182,14.077,19.773,1,0.02,-0.384,0.037,3600

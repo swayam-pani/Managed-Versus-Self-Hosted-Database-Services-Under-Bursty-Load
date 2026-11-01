@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 testbed_db.sqlite
 .env
+*.zip
+Cloud_Computing_Project_sem7_Review2/
+

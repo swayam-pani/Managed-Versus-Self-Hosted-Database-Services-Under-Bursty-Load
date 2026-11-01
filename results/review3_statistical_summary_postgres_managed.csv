@@ -1,0 +1,4 @@
+backend,workload,trials_n,base_p99_mean_ms,base_p99_variance,base_p99_std,base_p99_ci95,peak_p99_mean_ms,peak_p99_variance,peak_p99_std,peak_p99_ci95,recovery_time_mean_s,recovery_time_variance,recovery_time_std,recovery_time_ci95,baf_mean,baf_variance,baf_ci95
+postgres_managed,read_heavy,3,925.804,233739.697,483.466,1201.094,694.653,20043.3382,141.574,351.719,5.667,65.3333,8.083,20.081,-0.013,0.0414,0.505
+postgres_managed,balanced,3,665.293,4249.4647,65.188,161.949,1226.381,217676.9762,466.559,1159.089,1,0,0.0,0.0,0.27,0.0329,0.451
+postgres_managed,write_heavy,3,652.954,1219.0228,34.915,86.739,4327.676,28326481.1449,5322.263,13222.301,4.333,6.3333,2.517,6.252,1.835,6.9565,6.552

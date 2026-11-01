@@ -1,0 +1,10 @@
+backend,workload,trial_id,base_qps,burst_qps,pre_burst_p99_ms,peak_burst_p99_ms,recovery_threshold_ms,recovery_time_s,baf,total_errors
+postgres_managed,read_heavy,1,150,600,911.117,822.354,1366.675,1,-0.0325,0
+postgres_managed,read_heavy,2,150,600,449.848,719.191,674.772,15.0,0.1996,0
+postgres_managed,read_heavy,3,150,600,1416.446,542.413,2124.669,1,-0.2057,0
+postgres_managed,balanced,1,150,600,728.258,1630.525,1092.386,1,0.413,0
+postgres_managed,balanced,2,150,600,669.531,1332.817,1004.297,1,0.3302,0
+postgres_managed,balanced,3,150,600,598.089,715.8,897.133,1,0.0656,0
+postgres_managed,write_heavy,1,150,600,676.554,1479.472,1014.83,4,0.3956,0
+postgres_managed,write_heavy,2,150,600,612.847,1035.605,919.27,2,0.2299,0
+postgres_managed,write_heavy,3,150,600,669.462,10467.95,1004.193,7,4.8788,0

@@ -1,0 +1,10 @@
+backend,workload,trial_id,base_qps,burst_qps,pre_burst_p99_ms,peak_burst_p99_ms,recovery_threshold_ms,recovery_time_s,baf,total_errors
+sqlite,read_heavy,1,150,600,4.648,4.938,6.972,1,0.0208,0
+sqlite,read_heavy,2,150,600,4.86,58.127,7.29,15.0,3.6537,0
+sqlite,read_heavy,3,150,600,4.807,5.62,7.211,1,0.0563,0
+sqlite,balanced,1,150,600,5.117,4.26,7.675,1,-0.0558,0
+sqlite,balanced,2,150,600,4.967,5.745,7.45,4,0.0522,0
+sqlite,balanced,3,150,600,6.523,11.632,9.784,6,0.2611,0
+sqlite,write_heavy,1,150,600,8.637,8.457,12.956,1,-0.007,0
+sqlite,write_heavy,2,150,600,6.606,9.446,9.91,1,0.1433,0
+sqlite,write_heavy,3,150,600,9.664,6.16,14.497,1,-0.1209,0

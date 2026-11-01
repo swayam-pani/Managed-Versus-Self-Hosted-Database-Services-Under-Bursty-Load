@@ -1,0 +1,78 @@
+[2026-08-30 15:12:19] --- STARTING STEADY-STATE BASELINE BENCHMARK ---
+[2026-08-30 15:12:19] Workload: read_heavy | Target Rate: 100 QPS | Duration: 10s
+[2026-08-30 15:12:29] === BENCHMARK EXECUTION SUMMARY ===
+[2026-08-30 15:12:29] Execution Time: 10.01 seconds
+[2026-08-30 15:12:29] Total Queries Executed: 1137
+[2026-08-30 15:12:29] Achieved QPS: 113.60 queries/sec
+[2026-08-30 15:12:29] Achieved TPS: 18.88 trans/sec
+[2026-08-30 15:12:29] Average Latency: 1.838 ms
+[2026-08-30 15:12:29] Median (p50) Latency: 0.285 ms
+[2026-08-30 15:12:29] 95th Percentile (p95) Latency: 8.538 ms
+[2026-08-30 15:12:29] 99th Percentile (p99) Tail Latency: 11.315 ms
+[2026-08-30 15:12:29] Max Latency: 33.636 ms
+[2026-08-30 15:12:29] ===================================
+[2026-08-30 15:12:29] --- STARTING STEADY-STATE BASELINE BENCHMARK ---
+[2026-08-30 15:12:29] Workload: read_heavy | Target Rate: 300 QPS | Duration: 10s
+[2026-08-30 15:12:39] === BENCHMARK EXECUTION SUMMARY ===
+[2026-08-30 15:12:39] Execution Time: 10.00 seconds
+[2026-08-30 15:12:39] Total Queries Executed: 2658
+[2026-08-30 15:12:39] Achieved QPS: 265.72 queries/sec
+[2026-08-30 15:12:39] Achieved TPS: 43.49 trans/sec
+[2026-08-30 15:12:39] Average Latency: 1.682 ms
+[2026-08-30 15:12:39] Median (p50) Latency: 0.251 ms
+[2026-08-30 15:12:39] 95th Percentile (p95) Latency: 8.161 ms
+[2026-08-30 15:12:39] 99th Percentile (p99) Tail Latency: 9.644 ms
+[2026-08-30 15:12:39] Max Latency: 14.647 ms
+[2026-08-30 15:12:39] ===================================
+[2026-08-30 15:12:39] --- STARTING STEADY-STATE BASELINE BENCHMARK ---
+[2026-08-30 15:12:39] Workload: write_heavy | Target Rate: 500 QPS | Duration: 10s
+[2026-08-30 15:12:49] === BENCHMARK EXECUTION SUMMARY ===
+[2026-08-30 15:12:49] Execution Time: 10.00 seconds
+[2026-08-30 15:12:49] Total Queries Executed: 3717
+[2026-08-30 15:12:49] Achieved QPS: 371.58 queries/sec
+[2026-08-30 15:12:49] Achieved TPS: 123.86 trans/sec
+[2026-08-30 15:12:49] Average Latency: 8.057 ms
+[2026-08-30 15:12:49] Median (p50) Latency: 7.892 ms
+[2026-08-30 15:12:49] 95th Percentile (p95) Latency: 10.451 ms
+[2026-08-30 15:12:49] 99th Percentile (p99) Tail Latency: 14.359 ms
+[2026-08-30 15:12:49] Max Latency: 36.872 ms
+[2026-08-30 15:12:49] ===================================
+[2026-08-30 20:31:38] --- STARTING STEADY-STATE BASELINE BENCHMARK ---
+[2026-08-30 20:31:38] Workload: read_heavy | Target Rate: 100 QPS | Duration: 10s
+[2026-08-30 20:31:48] === BENCHMARK EXECUTION SUMMARY ===
+[2026-08-30 20:31:48] Execution Time: 10.00 seconds
+[2026-08-30 20:31:48] Total Queries Executed: 1119
+[2026-08-30 20:31:48] Achieved QPS: 111.86 queries/sec
+[2026-08-30 20:31:48] Achieved TPS: 17.19 trans/sec
+[2026-08-30 20:31:48] Average Latency: 1.857 ms
+[2026-08-30 20:31:48] Median (p50) Latency: 0.302 ms
+[2026-08-30 20:31:48] 95th Percentile (p95) Latency: 9.026 ms
+[2026-08-30 20:31:48] 99th Percentile (p99) Tail Latency: 10.851 ms
+[2026-08-30 20:31:48] Max Latency: 32.439 ms
+[2026-08-30 20:31:48] ===================================
+[2026-08-30 20:31:48] --- STARTING STEADY-STATE BASELINE BENCHMARK ---
+[2026-08-30 20:31:48] Workload: read_heavy | Target Rate: 300 QPS | Duration: 10s
+[2026-08-30 20:31:58] === BENCHMARK EXECUTION SUMMARY ===
+[2026-08-30 20:31:58] Execution Time: 10.00 seconds
+[2026-08-30 20:31:58] Total Queries Executed: 2744
+[2026-08-30 20:31:58] Achieved QPS: 274.32 queries/sec
+[2026-08-30 20:31:58] Achieved TPS: 45.69 trans/sec
+[2026-08-30 20:31:58] Average Latency: 1.510 ms
+[2026-08-30 20:31:58] Median (p50) Latency: 0.245 ms
+[2026-08-30 20:31:58] 95th Percentile (p95) Latency: 6.973 ms
+[2026-08-30 20:31:58] 99th Percentile (p99) Tail Latency: 8.640 ms
+[2026-08-30 20:31:58] Max Latency: 15.047 ms
+[2026-08-30 20:31:58] ===================================
+[2026-08-30 20:31:58] --- STARTING STEADY-STATE BASELINE BENCHMARK ---
+[2026-08-30 20:31:58] Workload: write_heavy | Target Rate: 500 QPS | Duration: 10s
+[2026-08-30 20:32:08] === BENCHMARK EXECUTION SUMMARY ===
+[2026-08-30 20:32:08] Execution Time: 10.00 seconds
+[2026-08-30 20:32:08] Total Queries Executed: 4737
+[2026-08-30 20:32:08] Achieved QPS: 473.68 queries/sec
+[2026-08-30 20:32:08] Achieved TPS: 157.89 trans/sec
+[2026-08-30 20:32:08] Average Latency: 6.321 ms
+[2026-08-30 20:32:08] Median (p50) Latency: 6.177 ms
+[2026-08-30 20:32:08] 95th Percentile (p95) Latency: 7.494 ms
+[2026-08-30 20:32:08] 99th Percentile (p99) Tail Latency: 8.850 ms
+[2026-08-30 20:32:08] Max Latency: 38.431 ms
+[2026-08-30 20:32:08] ===================================
