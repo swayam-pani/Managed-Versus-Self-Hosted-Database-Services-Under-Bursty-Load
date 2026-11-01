@@ -6,3 +6,14 @@ testbed_db.sqlite
 *.zip
 Cloud_Computing_Project_sem7_Review2/
 
+# Reports, Presentations, and Assignment Submissions
+*.docx
+*.pptx
+*.pdf
+Review_*.md
+Review_*.html
+DA Problem statements*
+Swayam_Pani_*
+results/*_slides_*.md
+
+
