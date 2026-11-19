@@ -1,9 +1,8 @@
 @echo off
 echo ===============================================================================
-echo     PROJECT REVIEW 3: INTERACTIVE LIVE DEMONSTRATION LAUNCHER
-echo     P8: Managed vs Self-Hosted Cloud Database Services Under Bursty Load
-echo     Students: Swayam Pani (23BCE1526) · Anamitra Shrivastava (23BCE5012)
-echo     Guide: Dr. Indra Priyadarshini S
+echo     CLOUD DATABASE BENCHMARK: INTERACTIVE LIVE DEMONSTRATION LAUNCHER
+echo     Managed vs Self-Hosted Cloud Database Services Under Bursty Load
+echo     Author: Swayam Pani
 echo ===============================================================================
 echo.
 echo [1/2] Starting Local Interactive Benchmark Server on http://localhost:8000 ...

@@ -11,3 +11,9 @@
 [2026-08-30 20:31:38] Testbed database initialized. Total accounts: 10,000
 [2026-08-30 20:31:38] Database Testbed is ACTIVE and ready for workload generation.
 [2026-08-30 20:32:08] All baseline benchmark scenarios completed successfully.
+[2026-11-19 22:17:43] Starting Testbed Environment Probe...
+[2026-11-19 22:17:43] System Node: DESKTOP-71KH1AK
+[2026-11-19 22:17:43] Deploying Self-Hosted Relational Database Testbed Container/Engine...
+[2026-11-19 22:17:43] Testbed database initialized. Total accounts: 10,000
+[2026-11-19 22:17:43] Database Testbed is ACTIVE and ready for workload generation.
+[2026-11-19 22:18:13] All baseline benchmark scenarios completed successfully.

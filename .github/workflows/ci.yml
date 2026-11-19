@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    name: Benchmark & Dashboard Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Verify SQLite testbed benchmark
+        run: |
+          python scripts/run_baseline.py --backend sqlite --qps 50 --duration 5
+
+      - name: Verify TCO model computation
+        run: |
+          python scripts/tco_model.py
+
+      - name: Verify FastAPI Web Dashboard syntax
+        run: |
+          python -c "from web_dashboard.server import app; print('FastAPI app initialized successfully')"

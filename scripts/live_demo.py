@@ -97,7 +97,7 @@ def run_live_demonstration(backend_kind="postgres_managed", base_qps=150, burst_
     print(f"\n{BOLD}{CYAN}╔═════════════════════════════════════════════════════════════════════════════════╗{RESET}")
     print(f"{BOLD}{CYAN}║     PROJECT REVIEW 3: LIVE SYSTEM BENCHMARK DEMONSTRATION                       ║{RESET}")
     print(f"{BOLD}{CYAN}║     P8: Managed vs Self-Hosted Database Services Under Bursty Load              ║{RESET}")
-    print(f"{BOLD}{CYAN}║     Students: Swayam Pani (23BCE1526) · Anamitra Shrivastava (23BCE5012)        ║{RESET}")
+    print(f"{BOLD}{CYAN}║     Author: Swayam Pani                                                         ║{RESET}")
     print(f"{BOLD}{CYAN}╚═════════════════════════════════════════════════════════════════════════════════╝{RESET}\n")
 
     print(f"Connecting to database backend: {BOLD}{backend_kind}{RESET} ... ", end="", flush=True)
